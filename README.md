@@ -1,6 +1,6 @@
 Instructions on how to install and set up the project:
 
-1. Clone the repository: git clone https://github.com/username/project.git
+1. Clone the repository: git clone https://github.com/Alifaeenali/newFront
    Run these command in terminal:
 2. pip intall flask
 3. set FLASK_APP=app.py
