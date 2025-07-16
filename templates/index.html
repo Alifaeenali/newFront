@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">.
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/hero.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/client_trust.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/innovation.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/improve_experience.css')}}">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/contactpage.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/explore_industries.css')}}">
+</head>
+<body>
+    <!-- section navbar -->
+<div class="navbar">
+
+        <div class="logo">
+            <a href="logo">NEWFRONT</a>
+        </div>
+        <div class="list">
+            <ul>
+                <li>
+                    <a href="#">Buisness Insurance</a>
+                </li>
+                <li class="dropdown">
+                    <p id="#">Solutions &#x25BE;</p>
+                    <div class="dropdown-content">
+                        <a href="Matchmaking">Match Making (Live now)</a>
+                        <div class="line"></div>
+                        <a href="Upcomming">Upcomming Solutions (Comming Soon)</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="{{ url_for('faqs') }}">FAQs</a>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                </li>
+                <li>
+                    <p id="Contact">Contact</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="side">
+            <div class="login"><a href="login">Login</a></div>
+            <button id="BookDemo" class="talk-to-expert">Book Demo</button>
+        </div>
+    </div>
+
+    <!-- section hero -->
+     <section class="hero">
+    <div class="hero-container">
+
+        <div class="hero-Img">
+            <img src="{{url_for('static', filename='assets/images/hero.png')}}">
+        </div>
+
+        <div class="hero-description">
+            <span>
+            <span class="hero-main-description"><h1>De-Risking</h1></span>
+            <span class="hero-main-description"><i><h1>Human Progress</h1></i></span>
+            </span>
+            <span class="hero-sub-description">With elite insurance expertise empowered by breakthrough technology, Newfront is the modern insurance brokerage for the 21st century.</span>
+
+            <div class="hero-btn"><button class="talk-to-expert" id="hero-talk-to-expert">Talk to expert</button></div>
+            
+        </div>
+    </div>
+     </section>
+
+<section class="clientTrust">
+    <div class="clientTrust-description">
+        <div class="clientTrust-heading">
+            <b><h1>Clients Trust Newfront</h1></b>
+        </div>
+        <div class="clientTrust-sub-description">
+            Our experts consult with companies across all growth stages on strategies that align with their benefits philosophy.
+        </div>
+    </div>
+    <div class="client-image-scroller">
+        <div class="scroller-inner">
+            <img src="{{url_for('static', filename='assets/images/client1.png')}}" alt="clientLogo1">
+            <img src="{{url_for('static', filename='assets/images/client2.webp')}}" alt="clientLogo2">
+            <img src="{{url_for('static', filename='assets/images/client3.png')}}" alt="clientLogo3">
+            <img src="{{url_for('static', filename='assets/images/client4.webp')}}" alt="clientLogo4">
+            <img src="{{url_for('static', filename='assets/images/client5.png')}}" alt="clientLogo5">
+            <img src="{{url_for('static', filename='assets/images/client6.png')}}" alt="clientLogo6">
+            <img src="{{url_for('static', filename='assets/images/client7.webp')}}" alt="clientLogo7">
+            <img src="{{url_for('static', filename='assets/images/client8.png')}}"  alt="clientLogo8">
+            <img src="{{url_for('static', filename='assets/images/client9.webp')}}" alt="clientLogo9">
+            <!-- Duplicate images for seamless looping -->
+            <img src="{{url_for('static', filename='assets/images/client1.png')}}" alt="clientLogo1">
+            <img src="{{url_for('static', filename='assets/images/client2.webp')}}" alt="clientLogo2">
+            <img src="{{url_for('static', filename='assets/images/client3.png')}}" alt="clientLogo3">
+            <img src="{{url_for('static', filename='assets/images/client4.webp')}}" alt="clientLogo4">
+            <img src="{{url_for('static', filename='assets/images/client5.png')}}" alt="clientLogo5">
+            <img src="{{url_for('static', filename='assets/images/client6.png')}}" alt="clientLogo6">
+            <img src="{{url_for('static', filename='assets/images/client7.webp')}}" alt="clientLogo7">
+            <img src="{{url_for('static', filename='assets/images/client8.png')}}"  alt="clientLogo8">
+            <img src="{{url_for('static', filename='assets/images/client9.webp')}}" alt="clientLogo9">
+        </div>
+    </div>
+</section>
+
+     <!-- section charting a new course -->
+      <section class="innovation">
+        <div class="innovation-description">
+            <h5>IMPACTFUL INNOVATION</h5>
+    
+    <h2>Charting a <br>New Course</h2>
+    
+    <p class="para">We're bringing advanced technology to an antiquated industry, fostering transparency, convenience, and optimized client outcomes.</p>
+    
+    <ul>
+        <li>Business insurance clients can have 24/7 access to their entire insurance program including policies, losses, COIs, and billing, on any device through Newfront's connected dashboard</li>
+        <li>Total rewards clients can access benefit plans, compliance information, and secure documents in our centralized platform</li>
+        <li>Predictive analytics and proprietary benchmarking enable better carrier negotiations and informed decision-making</li>
+        <li>Multiple AI-enabled technology solutions continue to be developed, saving clients time and improving their experiences</li>
+    </ul>
+        <a href="#" class="nav-link">Navigator for Total Rewards →</a>
+    <a href="#" class="nav-link" style="background-color: none;">Navigator for Business Insurance →</a>
+        </div>
+
+    <div <div class="innovation-video">
+    <video>
+        <source src="{{ url_for('static', filename='assets/videos/a_new_course.webm') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay">
+        <div class="play-button"></div>
+        <div class="close-button">×</div>
+    </div>
+</div>
+</div>
+
+</div>
+
+
+      </section>
+
+
+     <!-- section empowered experties -->
+<!-- <section class="experties">
+        <div class="experties-media">
+            <img src="assets/images/experties.webp" alt="">
+        </div>
+
+        <div class="experties-description">
+            <p>Empowered Expertise</p>
+            <div class="experties-heading">
+                Talent Meets Tech
+            </div>
+            <div class="experties-subdescription">
+               Technology should enhance human expertise not replace it. By equipping our elite insurance talent with tech, we're creating a competitive edge for our people and clients. For example:
+            </div>
+            <ul>
+                <li>
+                    <span></span>
+                    <p>Paperless onboarding: our digital interface captures structured client data, providing more accurate submissions and saving time</p>
+                </li>
+                <li>
+                    <span></span>
+                    <p>Data-driven placement: armed with deep insights our experts find the right insurance partners for every client</p>
+                </li>
+                <li>
+                    <span></span>
+                    <p>Seamless service: convenient and continuous service, payments, and updates can be made through a secure platform, available 24/7</p>
+                </li>
+                <li>
+                    <span></span>
+                    <p>Intelligent claims advocacy: experienced claims advocates leverage proprietary analytics tools to resolve claims and reduce the total cost of risk</p>
+                </li>
+            </ul>
+        </div>
+      </section> -->
+     <!-- galvanized for growth -->
+<!-- <section class="growth">
+       
+
+        <div class="growth-description">
+            <p>Galvanized for Growth</p>
+            <div class="growth-heading">
+                Built to Scale
+            </div>
+            <div class="growth-subdescription">
+               Our highly-tenured team of experts support clients through their growth and business evolution at a variety of milestones with solutions that fit their needs—from early stage to mature enterprise
+            </div>
+            <ul>
+                <li>
+                    <span></span>
+                    <p>From start-up to IPO: we have worked with hundreds of early-stage companies, navigating funding rounds, hockey-stick growth, IPOs, and more</p>
+                </li>
+                <li>
+                    <span></span>
+                    <p>Going global: enabled by the Worldwide Broker Network (WBN), we provide deep, country-specific risk assessments in 100 markets</p>
+                </li>
+                <li>
+                    <span></span>
+                    <p>Solutions that scale: our platform and extensive network of vendor partners meet you where you are</p>
+                </li>
+                <li>
+                    <span></span>
+                    <p>Client-first model: we put you first by operating as an extension of your team when you need it most</p>
+                </li>
+            </ul>
+        </div>
+        <div class="growth-media">
+            <img src="assets/images/growth1.webp" alt="">
+            <img src="assets/images/growth2.webp" alt="">
+            <img src="assets/images/growth3.webp" alt="">
+        </div>
+      </section> -->
+
+     <!-- improve experience -->
+<section class="improve-experience">
+    <video autoplay muted loop id="myVideo">
+        <source src="{{ url_for('static', filename='assets/videos/improve-experience.webm') }}" type="video/mp4">
+    </video>
+
+    <div class="improve-experience-description">
+        <div class="improve-experience-heading">
+            <b><h1>Using AI to <br> Improve the <br> Client Experience</h1></b>
+        </div>
+        <div class="improve-experience-subheading">
+            Newfront is building breakthrough AI to drive client insights and free our teams to do the strategic work they were built to do.
+        </div>
+        <span><button class="improve-experience-learn-more">Learn More About AI →</button></span>
+    </div>
+    <div class="video-overlay">
+        <div class="play-button"></div>
+        <div class="close-button">×</div>
+    </div>
+
+</section>
+
+     <!-- by the numbers -->
+      <section class="statistics">
+        <div class="cont">
+        <div class="statistics-description">
+            <div class="statistics-heading">
+                <h1><b>By  the    Numbers</b></h1>
+            </div>
+            <div class="statistics-sub-description">
+                The data speaks for itself. From our large roster of established and growing clients to our stellar client retention rate—we build relationships that last.
+            </div>
+        </div>
+        <div class="statistics-cards">
+            <div class="card c1">
+
+                <img src="{{ url_for('static', filename='assets/images/stats1.png') }}" alt="">
+
+                <div class="number">
+                    <h1>$3.1B</h1>
+                    <p>in annual premiums placed</p>
+                </div>
+                
+            </div>
+
+            <div class="card c2">
+                <img src="{{ url_for('static', filename='assets/images/stats2.png') }}" alt="">
+                <div class="number">
+                    <h1>~20%</h1>
+                    <p>U.S. unicorns represented</p>
+                </div>
+                
+            </div>
+            <div class="card c3">
+                <img src="{{ url_for('static', filename='assets/images/stats3.png') }}" alt="">
+                <div class="number">
+                    <h1>500+</h1>
+                    <p>public company experience</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+      </section>
+     <!-- get to know newfront -->
+      <section class="get-to-know">
+        <video autoplay muted loop id="myVideo">
+        <source src="{{ url_for('static', filename='assets/videos/get-to-know.webm') }}" type="video/mp4">
+    </video>
+        <div class="get-to-know-heading">
+            <h1><b>Get to<br>Know
+Newfront</b></h1>
+        </div>
+    <div class="video-overlay">
+        <div class="play-button"></div>
+        <div class="close-button">×</div>
+    </div>
+      </section>
+
+     <!-- explore industries and services -->
+      <section class="explore">
+
+        <div class="explore-head">
+            <div class="explore-heading"><b><h1>
+                Explore Our <br> Industries and Services
+            </h1></b></div>
+            <div class="explore-btns">
+                <div class="btn1 exp-btn">
+                    <p><</p>
+                </div>
+                <div class="btn-2 exp-btn">
+                    <p>></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="explore-pics-frame">
+            <div>
+                <img src="{{ url_for('static', filename='assets/images/explore1.webp') }}" alt="">
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='assets/images/explore2.webp') }}" alt="">
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='assets/images/explore3.webp') }}" alt="">
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='assets/images/explore4.webp') }}" alt="">
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='assets/images/explore5.webp') }}" alt="">
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='assets/images/explore6.webp') }}" alt="">
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='assets/images/explore7.webp') }}" alt="">
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='assets/images/explore8.webp') }}" alt="">
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='assets/images/explore9.webp') }}" alt="">
+            </div>
+            
+        </div>
+
+        <div class="explore-btn-section">
+            <button class="explore-btn">See All</button>
+        </div>
+      </section>
+
+    <!-- section contact page -->
+     <section class="Contact">
+        <div class="Contact-conatiner">
+
+        <div class="closeBtnCont contactCont">
+            <button class="closeBtn" id="closeBtn">&times;</button>
+        </div>
+
+        <div class="headers contactCont">
+            <div class="mainHeading">
+                <b><h1>Get Started Today</h1></b>
+            </div>
+            <div class="contact-description">
+                Schedule a consultantion to see how Newfront can reduce your risk
+            </div>
+        </div>
+
+        <form action="POST" class="contactCont">
+            <div class="infoSection sec-cont">
+                <div class="names form-sub-cont">
+                    <div class=" form-final-cont">
+                        <label for="firstName">First name*</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="lname  form-final-cont">
+                        <label for="LasttName">Last name*</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+
+                <div class="job form-sub-cont">
+                    <div class="jobTitle  form-final-cont">
+                        <label for="JobTitle">Job Title*</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="CompanyName  form-final-cont">
+                        <label for="CompanyName">Company Name*</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+
+                <div class="ContactInfo form-sub-cont">
+                    <div class="phNum  form-final-cont">
+                        <label for="PhNumber">Phone Number*</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="Email  form-final-cont">
+                        <label for="Email">Email*</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+
+                <div class="industryInfo form-sub-cont">
+                    <div class="industry  form-final-cont">
+                        <label for="industry">Industry*</label>
+                        <select name="SelectIndustry" id="SelectIndustry">
+                            <option value="pleaseSelect">Please Select</option>
+                            <option value="Automotive">Automotive </option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Agriculture">Agriculture</option>
+                            <option value="Aviation">Aviation</option>
+                            <option value="Construction">Construction</option>
+                        </select>
+                    </div>
+                    <div class="EmployeeNum  form-final-cont">
+                        <label for="EmployeeNum">Number of employee*</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="helpSection">
+                <label for="forHelp">How can we help?*
+                    <div class="checkboxGroup">
+                    <label><input type="checkbox" /> Employee Benefits</label>
+                    <label><input type="checkbox" /> Retirement Services</label>
+                    <label><input type="checkbox" /> HR Services</label>
+                    <label><input type="checkbox" /> Personal Lines</label>
+                    <label><input type="checkbox" /> Wholesale Benefits</label>
+                    <label><input type="checkbox" /> Asset Protection Program (APP)</label>
+                </div>
+
+            </div>
+
+            <div class="additionalDetails">
+                <label for="additionaldetails">Additional Details</label>
+                <textarea name="additionaldetailtextarea" id="adddetailsTextArea"></textarea>
+            </div>
+            <button class="Submit">Submit</button>
+        </form>
+        <div class="termsAndPolicies contactCont">
+            <p>By sumbitting, you agree to our <a href="">term</a> and <a href="">Policy</a>.</p>
+            <p>
+                This site is protected by reCAPTCHA and the Google <a href="#">Privacy Policy</a>, and <a href="#">Term of Service</a> apply.
+            </p>
+        </div>
+        </div>
+     </section>
+
+        <footer>
+
+        </footer>
+</body>
+<script src="{{ url_for('static', filename='js/navbarScroll.js')}}"></script>
+<script src="{{ url_for('static', filename='js/innovation.js')}}"></script>
+<script src="{{ url_for('static', filename='js/plat_pause.js')}}"></script>
+</html>

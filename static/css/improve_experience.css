@@ -1,0 +1,155 @@
+.improve-experience{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    background: none;
+}
+
+.improve-experience #myVideo{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -11;
+    object-fit: cover;
+}
+
+.improve-experience-description{
+    /* border:  solid; */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-left: 10%;
+    height: 50%;
+    margin-top: 10%;
+    gap: 25px;
+}
+
+.improve-experience-heading{
+    font-size: x-large;
+}
+.improve-experience-heading h1{
+    color: #fff;
+}
+
+.improve-experience-subheading{
+    width: 70%;
+    color: #fff;
+}
+
+.improve-experience-description span{
+    height: 15%;
+}
+
+.improve-experience-learn-more{
+    border: none;
+    width: 35%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+
+/* stats card */
+
+.statistics{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cont{
+    border-top: solid rgba(255, 255, 255, 0.7);
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.statistics-description{
+    /* border: solid; */
+    margin-top: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 20%;
+}
+.statistics-heading h1{
+    font-size: xx-large;
+}
+.statistics-sub-description{
+    width: 35%;
+}
+
+.statistics-cards{
+    display: flex;
+    width: 100%;
+    /* border: solid; */
+    height: 60%;
+    justify-content: space-between;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border: solid; */
+    width: 31%;
+    padding: 30px;
+    border-radius: 25px;
+    background: #fff;
+}
+
+.card img{
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.number{
+    /* border: solid;rq */
+    width: 80%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+}
+.number h1{
+    font-size: 40px;
+}
+
+/* section:-- */
+.get-to-know{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.get-to-know video{
+    position: absolute;
+    object-fit:  cover;
+    width: 100%;
+    height: 100%;
+}
+.get-to-know-heading{
+    z-index: 1;
+    /* border: solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    height: auto;
+    width: auto;
+    margin-left: 10%;
+}
+
+.get-to-know-heading h1 b{
+    color: #fff;
+}

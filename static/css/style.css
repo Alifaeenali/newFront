@@ -1,0 +1,146 @@
+*{
+    margin: 0;padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    color: #000;
+}
+body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background: rgb(26, 34, 36);
+}
+section{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: rgb(230, 233, 237);
+}
+
+
+/* navbar */
+.navbar{
+    /* border: solid; */
+    width: 97%;
+    /* height: 10vh; */
+    background: rgb(33, 51, 55);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 15px;
+    height: 12vh;
+    position: fixed;     /* Stay at top */
+    top: 20px;           /* Distance from top */
+    left: 20px;          /* Distance from left */
+    right: 20px;
+    z-index: 3;
+    transition: top 0.3s ease-in-out, opacity 0.3s;
+
+}
+.navbar.hidden {
+    top: -100px;
+    opacity: 0;
+    pointer-events: none;
+}
+.navbar .list{
+    /* border: solid 1px #fff; */
+    width: 70%;
+}
+.list ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+.list ul a,p{
+    color: rgba(255, 255, 255, 0.7); 
+    transition: .4s;
+    cursor: pointer;
+}
+.list ul a:hover,  p:hover, .dropdown:hover{
+    color: #fff;
+}
+
+.navbar .list li{
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: none;
+    position:  relative;
+}
+
+.navbar .logo{
+    /* border: solid #fff; */
+    width: 10%;
+    height: 80%;
+    display: flex;
+    align-items: center;justify-content: center;
+    font-size: large;
+}
+
+.navbar .logo a{
+   color:  #fff;
+}
+
+.navbar .side{
+    /* border: solid white; */
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80%;
+
+}
+.navbar .side .login a{
+    color: rgba(255, 255, 255, 0.7);
+    transition: .4s;
+}
+.navbar .side .login a:hover{
+    color: #fff;
+}
+.navbar .side button{
+    width: 70%;
+    height: 80%;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.7);
+    transition: .5s;
+    font-size: medium;
+}
+.navbar .side button:hover{
+    background: rgb(240, 40, 184);
+    color: white;
+    
+}
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+    border: solid;
+    cursor: pointer;
+}
+.dropdown p{
+    color: rgba(255, 255, 255, 0.7);
+
+}
+.dropdown-content {
+    position: absolute;
+    background-color: rgb(33, 51, 55);
+    min-width: 300%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    z-index: 1;
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+}
+
+.line{
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 10px 0;
+}

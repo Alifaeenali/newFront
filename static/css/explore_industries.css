@@ -1,0 +1,101 @@
+.explore{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:  space-evenly;
+    align-items: center;
+    background: rgb(32, 44, 47);
+}
+
+.explore-head{
+    /* border:  solid; */
+    height: 20%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.explore-head h1{
+    color: #fff;
+}
+
+.explore-head .explore-btns{
+    /* border:  solid; */
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.exp-btn{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    font-weight: bold;
+    background: rgba(21, 32, 35, 0.7);
+}
+
+.explore .explore-pics-frame{
+    display: flex;
+    width: 100%;
+    height: 60%;
+    gap: 30px;
+    overflow-x: scroll;
+    padding-bottom: 10px;
+}
+.explore-pics-frame::-webkit-scrollbar {
+  height: 20px;
+  padding: 5px;
+
+}
+.explore-pics-frame::-webkit-scrollbar-track {
+  background: none;   
+  border: none;                    /* No border */
+}
+.explore-pics-frame::-webkit-scrollbar-thumb {
+  background-color: #555;          /* Darker bold thumb */
+  border-radius: 10px;
+  border: none;
+}
+.explore-pics-frame::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+  width: 0;
+}
+.explore-pics-frame div{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    /* border: solid; */
+    background: #000;
+    border-radius: 10px;
+}
+
+.explore-btn-section{
+    /* border: solid; */
+    position: relative;
+    right: 40%;
+    width: 100px;
+    height: 50px;
+
+}
+
+.explore-btn-section button{
+    width: 100%;
+    height: 100%;
+    background: none;
+    color: #fff;
+    border-radius: 10px;
+    border: solid #fff;
+    transition: .4s;
+}
+.explore-btn-section button:hover{
+    background: rgb(240, 40, 184);
+    
+}
