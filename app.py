@@ -10,7 +10,12 @@ def index():
 def faqs():
     return render_template('faqs.html')
 
+@app.route('/demo')
+def demo():
+    return render_template('demo-page.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
 
+
+# HSSMMM04R30Z236Y

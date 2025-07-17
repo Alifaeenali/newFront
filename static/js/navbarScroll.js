@@ -23,14 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScroll = currentScroll;
     });
 
-    // Book Demo button click handler
-    const bookDemoBtn = document.getElementById('BookDemo');
-    if (bookDemoBtn) {
-        bookDemoBtn.addEventListener('click', function() {
-            alert('Demo booking functionality would go here');
-            // In a real implementation, you might open a modal or redirect
-        });
-    }
 });
 
 

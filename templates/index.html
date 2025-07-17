@@ -13,6 +13,12 @@
 
     <link rel="stylesheet" href="{{url_for('static', filename='css/contactpage.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/explore_industries.css')}}">
+
+    <!-- google font  -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+IN&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <!-- section navbar -->
@@ -27,7 +33,7 @@
                     <a href="#">Buisness Insurance</a>
                 </li>
                 <li class="dropdown">
-                    <p id="#">Solutions &#x25BE;</p>
+                    <p id="dropBtn">Solutions &#x25BE;</p>
                     <div class="dropdown-content">
                         <a href="Matchmaking">Match Making (Live now)</a>
                         <div class="line"></div>
@@ -48,7 +54,11 @@
 
         <div class="side">
             <div class="login"><a href="login">Login</a></div>
-            <button id="BookDemo" class="talk-to-expert">Book Demo</button>
+
+            <a href="{{ url_for('demo') }}" class='demoAnchor'>
+                <button id="BookDemo" class="talk-to-expert">Book Demo</button>
+            </a>
+            
         </div>
     </div>
 
@@ -108,9 +118,9 @@
 </section>
 
      <!-- section charting a new course -->
-      <section class="innovation">
-        <div class="innovation-description">
-            <h5>IMPACTFUL INNOVATION</h5>
+<section class="innovation">
+    <div class="innovation-description">
+        <h5>IMPACTFUL INNOVATION</h5>
     
     <h2>Charting a <br>New Course</h2>
     
@@ -124,7 +134,7 @@
     </ul>
         <a href="#" class="nav-link">Navigator for Total Rewards →</a>
     <a href="#" class="nav-link" style="background-color: none;">Navigator for Business Insurance →</a>
-        </div>
+</div>
 
     <div <div class="innovation-video">
     <video>
@@ -141,81 +151,7 @@
 </div>
 
 
-      </section>
-
-
-     <!-- section empowered experties -->
-<!-- <section class="experties">
-        <div class="experties-media">
-            <img src="assets/images/experties.webp" alt="">
-        </div>
-
-        <div class="experties-description">
-            <p>Empowered Expertise</p>
-            <div class="experties-heading">
-                Talent Meets Tech
-            </div>
-            <div class="experties-subdescription">
-               Technology should enhance human expertise not replace it. By equipping our elite insurance talent with tech, we're creating a competitive edge for our people and clients. For example:
-            </div>
-            <ul>
-                <li>
-                    <span></span>
-                    <p>Paperless onboarding: our digital interface captures structured client data, providing more accurate submissions and saving time</p>
-                </li>
-                <li>
-                    <span></span>
-                    <p>Data-driven placement: armed with deep insights our experts find the right insurance partners for every client</p>
-                </li>
-                <li>
-                    <span></span>
-                    <p>Seamless service: convenient and continuous service, payments, and updates can be made through a secure platform, available 24/7</p>
-                </li>
-                <li>
-                    <span></span>
-                    <p>Intelligent claims advocacy: experienced claims advocates leverage proprietary analytics tools to resolve claims and reduce the total cost of risk</p>
-                </li>
-            </ul>
-        </div>
-      </section> -->
-     <!-- galvanized for growth -->
-<!-- <section class="growth">
-       
-
-        <div class="growth-description">
-            <p>Galvanized for Growth</p>
-            <div class="growth-heading">
-                Built to Scale
-            </div>
-            <div class="growth-subdescription">
-               Our highly-tenured team of experts support clients through their growth and business evolution at a variety of milestones with solutions that fit their needs—from early stage to mature enterprise
-            </div>
-            <ul>
-                <li>
-                    <span></span>
-                    <p>From start-up to IPO: we have worked with hundreds of early-stage companies, navigating funding rounds, hockey-stick growth, IPOs, and more</p>
-                </li>
-                <li>
-                    <span></span>
-                    <p>Going global: enabled by the Worldwide Broker Network (WBN), we provide deep, country-specific risk assessments in 100 markets</p>
-                </li>
-                <li>
-                    <span></span>
-                    <p>Solutions that scale: our platform and extensive network of vendor partners meet you where you are</p>
-                </li>
-                <li>
-                    <span></span>
-                    <p>Client-first model: we put you first by operating as an extension of your team when you need it most</p>
-                </li>
-            </ul>
-        </div>
-        <div class="growth-media">
-            <img src="assets/images/growth1.webp" alt="">
-            <img src="assets/images/growth2.webp" alt="">
-            <img src="assets/images/growth3.webp" alt="">
-        </div>
-      </section> -->
-
+</section>
      <!-- improve experience -->
 <section class="improve-experience">
     <video autoplay muted loop id="myVideo">
@@ -303,16 +239,16 @@ Newfront</b></h1>
                 Explore Our <br> Industries and Services
             </h1></b></div>
             <div class="explore-btns">
-                <div class="btn1 exp-btn">
+                <div class="btn1 exp-btn scroll-btn left-btn">
                     <p><</p>
                 </div>
-                <div class="btn-2 exp-btn">
+                <div class="btn-2 exp-btn scroll-btn right-btn">
                     <p>></p>
                 </div>
             </div>
         </div>
         
-        <div class="explore-pics-frame">
+        <div class="explore-pics-frame scroll-content">
             <div>
                 <img src="{{ url_for('static', filename='assets/images/explore1.webp') }}" alt="">
             </div>
@@ -453,5 +389,5 @@ Newfront</b></h1>
 </body>
 <script src="{{ url_for('static', filename='js/navbarScroll.js')}}"></script>
 <script src="{{ url_for('static', filename='js/innovation.js')}}"></script>
-<script src="{{ url_for('static', filename='js/plat_pause.js')}}"></script>
+<script src="{{ url_for('static', filename='js/scroll_logic.js')}}"></script>
 </html>

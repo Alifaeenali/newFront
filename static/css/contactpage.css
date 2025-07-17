@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     background: rgb(0,0,0,0.5);
-    display: none;
+    display: flex;
 }
 
 .Contact-conatiner{
@@ -135,11 +135,11 @@ form{
     /* border: solid; */
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 2px;
 }
 .termsAndPolicies p{
-    font-size: small;
-
+    font-size: x-small;
+    color: #000;
 }
 .termsAndPolicies p a{
     text-decoration: underline;

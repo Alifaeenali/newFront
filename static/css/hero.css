@@ -6,6 +6,8 @@
     background: rgb(26, 34, 36);
     align-items: center;
     justify-content: center;
+    position: relative;
+    top: 0;
 }
 
 .hero-container{
