@@ -1,5 +1,3 @@
-from flask import Flask, render_template
-# from dbConnector import returnDict
 import mysql.connector
 from dotenv import load_dotenv
 import os
@@ -52,27 +50,6 @@ def returnDict():
     rows += cursor.fetchall()[0]
 
     data_dict = dict(zip(cols, rows))
-    return data_dict
+    print(data_dict['clImg3'], '|' ,data_dict['clImg4'], '|', data_dict['clImg7'])
 
-data_dict = returnDict()
-
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return render_template('index.html', **data_dict)
-
-@app.route('/faqs')
-def faqs():
-    return render_template('faqs.html')
-
-@app.route('/demo')
-def demo():
-    return render_template('demo-page.html')
-
-
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
-# HSSMMM04R30Z236Y
+returnDict()

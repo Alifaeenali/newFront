@@ -21,7 +21,9 @@ section{
     background: rgb(230, 233, 237);
 }
 
-
+button, a{
+    cursor: pointer;
+}
 /* navbar */
 .navbar{
     /* border: solid; */
@@ -48,15 +50,19 @@ section{
 }
 .navbar .list{
     /* border: solid 1px #fff; */
-    width: 70%;
+    width: 30%;
+    height: 80%;
 }
+
 .list ul{
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 100%;
     height: 100%;
+
 }
+
 .list ul a,p{
     color: rgba(255, 255, 255, 0.7); 
     transition: .4s;
@@ -75,11 +81,14 @@ section{
 
 .navbar .logo{
     /* border: solid #fff; */
-    width: 10%;
+    width: 40%;
     height: 80%;
     display: flex;
-    align-items: center;justify-content: center;
+    align-items: center;
+    justify-content:flex-start;
     font-size: large;
+    /* border: solid #fff; */
+    padding: 20px;
 }
 
 .navbar .logo a{
@@ -91,16 +100,9 @@ section{
     width: 15%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     height: 80%;
 
-}
-.navbar .side .login a{
-    color: rgba(255, 255, 255, 0.7);
-    transition: .4s;
-}
-.navbar .side .login a:hover{
-    color: #fff;
 }
 .demoAnchor{
     /* border: solid; */
