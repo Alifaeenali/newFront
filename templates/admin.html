@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Edit Website Content</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0056b3;
+            margin-bottom: 30px;
+        }
+        h2 {
+            margin-top: 30px;
+            color: #007bff;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            margin-top: 25px;
+            color: #4CAF50;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        .form-group input[type="text"],
+        .form-group textarea,
+        .form-group input[type="url"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .form-group input[type="file"] {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .form-group .current-file {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .current-file img {
+            max-width: 100px;
+            max-height: 100px;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .flash-messages {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .flash-messages li {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .flash-messages .success {
+            background-color: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+        }
+        .flash-messages .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel - Edit Website Content</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flash-messages">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('admin') }}" method="POST" enctype="multipart/form-data">
+            <h2>Navbar Section</h2>
+            <div class="form-group">
+                <label for="navLogo">Navigation Logo Text:</label>
+                <input type="text" id="navLogo" name="navLogo" value="{{ content.navLogo }}">
+            </div>
+            <div class="form-group">
+                <label for="anchor1">Anchor 1 Text:</label>
+                <input type="text" id="anchor1" name="anchor1" value="{{ content.anchor1 }}">
+            </div>
+            <div class="form-group">
+                <label for="dropdown1">Dropdown 1 Text:</label>
+                <input type="text" id="dropdown1" name="dropdown1" value="{{ content.dropdown1 }}">
+            </div>
+            <div class="form-group">
+                <label for="dropdown2">Dropdown 2 Text:</label>
+                <input type="text" id="dropdown2" name="dropdown2" value="{{ content.dropdown2 }}">
+            </div>
+            <div class="form-group">
+                <label for="anchor2">Anchor 2 Text (FAQs):</label>
+                <input type="text" id="anchor2" name="anchor2" value="{{ content.anchor2 }}">
+            </div>
+            <div class="form-group">
+                <label for="anchor3">Anchor 3 Text (Contact Us):</label>
+                <input type="text" id="anchor3" name="anchor3" value="{{ content.anchor3 }}">
+            </div>
+            <div class="form-group">
+                <label for="navbtn">Navigation Button Text:</label>
+                <input type="text" id="navbtn" name="navbtn" value="{{ content.navbtn }}">
+            </div>
+
+            <h2>Hero Section</h2>
+            <div class="form-group">
+                <label for="heroImg">Hero Image:</label>
+                <input type="file" id="heroImg" name="heroImg" accept="image/*">
+                {% if content.heroImg %}
+                    <p class="current-file">Current: <a href="{{ content.heroImg }}" target="_blank">{{ content.heroImg.split('/')[-1] if content.heroImg else '' }}</a>
+                    {% if content.heroImg.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.webp')) %}
+                        <img src="{{ content.heroImg }}" alt="Current Hero Image">
+                    {% endif %}
+                    </p>
+                    <input type="hidden" name="currentHeroImg" value="{{ content.heroImg }}">
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="heroHead1">Hero Heading 1:</label>
+                <input type="text" id="heroHead1" name="heroHead1" value="{{ content.heroHead1 }}">
+            </div>
+            <div class="form-group">
+                <label for="heroHead2">Hero Heading 2:</label>
+                <input type="text" id="heroHead2" name="heroHead2" value="{{ content.heroHead2 }}">
+            </div>
+            <div class="form-group">
+                <label for="heroPara">Hero Paragraph:</label>
+                <textarea id="heroPara" name="heroPara">{{ content.heroPara }}</textarea>
+            </div>
+
+            <h2>Client Trust Section</h2>
+            <div class="form-group">
+                <label for="clientHead">Client Trust Heading:</label>
+                <input type="text" id="clientHead" name="clientHead" value="{{ content.clientHead }}">
+            </div>
+            <div class="form-group">
+                <label for="clientDscp">Client Trust Description:</label>
+                <textarea id="clientDscp" name="clientDscp">{{ content.clientDscp }}</textarea>
+            </div>
+            {% for i in range(1, 10) %}
+            <div class="form-group">
+                <label for="clImg{{ i }}">Client Logo {{ i }}:</label>
+                <input type="file" id="clImg{{ i }}" name="clImg{{ i }}" accept="image/*">
+                {% if content['clImg' ~ i] %}
+                    <p class="current-file">Current: <a href="{{ content['clImg' ~ i] }}" target="_blank">{{ content['clImg' ~ i].split('/')[-1] if content['clImg' ~ i] else '' }}</a>
+                    {% if content['clImg' ~ i].lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.webp')) %}
+                        <img src="{{ content['clImg' ~ i] }}" alt="Current Client Logo {{ i }}">
+                    {% endif %}
+                    </p>
+                    <input type="hidden" name="currentClImg{{ i }}" value="{{ content['clImg' ~ i] }}">
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <h2>Innovation Section</h2>
+            <div class="form-group">
+                <label for="innovationh5">Innovation Sub-heading:</label>
+                <input type="text" id="innovationh5" name="innovationh5" value="{{ content.innovationh5 }}">
+            </div>
+            <div class="form-group">
+                <label for="innovationh1">Innovation Heading 1:</label>
+                <input type="text" id="innovationh1" name="innovationh1" value="{{ content.innovationh1 }}">
+            </div>
+            <div class="form-group">
+                <label for="innovationh2">Innovation Heading 2:</label>
+                <input type="text" id="innovationh2" name="innovationh2" value="{{ content.innovationh2 }}">
+            </div>
+            <div class="form-group">
+                <label for="innovationPara">Innovation Paragraph:</label>
+                <textarea id="innovationPara" name="innovationPara">{{ content.innovationPara }}</textarea>
+            </div>
+            {% for i in range(1, 5) %}
+            <div class="form-group">
+                <label for="innovationl{{ i }}">Innovation List Item {{ i }}:</label>
+                <input type="text" id="innovationl{{ i }}" name="innovationl{{ i }}" value="{{ content['innovationl' ~ i] }}">
+            </div>
+            {% endfor %}
+            <div class="form-group">
+                <label for="innovationVideo">Innovation Video:</label>
+                <input type="file" id="innovationVideo" name="innovationVideo" accept="video/mp4,video/webm">
+                {% if content.innovationVideo %}
+                    <p class="current-file">Current: <a href="{{ content.innovationVideo }}" target="_blank">{{ content.innovationVideo.split('/')[-1] if content.innovationVideo else '' }}</a></p>
+                    <input type="hidden" name="currentInnovationVideo" value="{{ content.innovationVideo }}">
+                {% endif %}
+            </div>
+
+            <h2>Improve Experience Section</h2>
+            <div class="form-group">
+                <label for="exph1">Experience Heading 1:</label>
+                <input type="text" id="exph1" name="exph1" value="{{ content.exph1 }}">
+            </div>
+            <div class="form-group">
+                <label for="exph2">Experience Heading 2:</label>
+                <input type="text" id="exph2" name="exph2" value="{{ content.exph2 }}">
+            </div>
+            <div class="form-group">
+                <label for="exph3">Experience Heading 3:</label>
+                <input type="text" id="exph3" name="exph3" value="{{ content.exph3 }}">
+            </div>
+            <div class="form-group">
+                <label for="exppara">Experience Paragraph:</label>
+                <textarea id="exppara" name="exppara">{{ content.exppara }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="expVideo">Experience Video:</label>
+                <input type="file" id="expVideo" name="expVideo" accept="video/mp4,video/webm">
+                {% if content.expVideo %}
+                    <p class="current-file">Current: <a href="{{ content.expVideo }}" target="_blank">{{ content.expVideo.split('/')[-1] if content.expVideo else '' }}</a></p>
+                    <input type="hidden" name="currentExpVideo" value="{{ content.expVideo }}">
+                {% endif %}
+            </div>
+
+            <h2>By the Numbers Section (Statistics)</h2>
+            <div class="form-group">
+                <label for="statHead">Statistics Heading:</label>
+                <input type="text" id="statHead" name="statHead" value="{{ content.statHead }}">
+            </div>
+            <div class="form-group">
+                <label for="statPara">Statistics Paragraph:</label>
+                <textarea id="statPara" name="statPara">{{ content.statPara }}</textarea>
+            </div>
+
+            <h3>Statistic Card 1</h3>
+            <div class="form-group">
+                <label for="cardLogo1">Card 1 Logo:</label>
+                <input type="file" id="cardLogo1" name="cardLogo1" accept="image/*">
+                {% if content.cardLogo1 %}
+                    <p class="current-file">Current: <a href="{{ content.cardLogo1 }}" target="_blank">{{ content.cardLogo1.split('/')[-1] if content.cardLogo1 else '' }}</a>
+                    {% if content.cardLogo1.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.webp')) %}
+                        <img src="{{ content.cardLogo1 }}" alt="Current Card 1 Logo">
+                    {% endif %}
+                    </p>
+                    <input type="hidden" name="currentCardLogo1" value="{{ content.cardLogo1 }}">
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="cardHead1">Card 1 Heading:</label>
+                <input type="text" id="cardHead1" name="cardHead1" value="{{ content.cardHead1 }}">
+            </div>
+            <div class="form-group">
+                <label for="cardPara1">Card 1 Paragraph:</label>
+                <textarea id="cardPara1" name="cardPara1">{{ content.cardPara1 }}</textarea>
+            </div>
+
+            <h3>Statistic Card 2</h3>
+            <div class="form-group">
+                <label for="cardLogo2">Card 2 Logo:</label>
+                <input type="file" id="cardLogo2" name="cardLogo2" accept="image/*">
+                {% if content.cardLogo2 %}
+                    <p class="current-file">Current: <a href="{{ content.cardLogo2 }}" target="_blank">{{ content.cardLogo2.split('/')[-1] if content.cardLogo2 else '' }}</a>
+                    {% if content.cardLogo2.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.webp')) %}
+                        <img src="{{ content.cardLogo2 }}" alt="Current Card 2 Logo">
+                    {% endif %}
+                    </p>
+                    <input type="hidden" name="currentCardLogo2" value="{{ content.cardLogo2 }}">
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="cardHead2">Card 2 Heading:</label>
+                <input type="text" id="cardHead2" name="cardHead2" value="{{ content.cardHead2 }}">
+            </div>
+            <div class="form-group">
+                <label for="cardPara2">Card 2 Paragraph:</label>
+                <textarea id="cardPara2" name="cardPara2">{{ content.cardPara2 }}</textarea>
+            </div>
+
+            <h3>Statistic Card 3</h3>
+            <div class="form-group">
+                <label for="cardLogo3">Card 3 Logo:</label>
+                <input type="file" id="cardLogo3" name="cardLogo3" accept="image/*">
+                {% if content.cardLogo3 %}
+                    <p class="current-file">Current: <a href="{{ content.cardLogo3 }}" target="_blank">{{ content.cardLogo3.split('/')[-1] if content.cardLogo3 else '' }}</a>
+                    {% if content.cardLogo3.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.webp')) %}
+                        <img src="{{ content.cardLogo3 }}" alt="Current Card 3 Logo">
+                    {% endif %}
+                    </p>
+                    <input type="hidden" name="currentCardLogo3" value="{{ content.cardLogo3 }}">
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="cardHead3">Card 3 Heading:</label>
+                <input type="text" id="cardHead3" name="cardHead3" value="{{ content.cardHead3 }}">
+            </div>
+            <div class="form-group">
+                <label for="cardPara3">Card 3 Paragraph:</label>
+                <textarea id="cardPara3" name="cardPara3">{{ content.cardPara3 }}</textarea>
+            </div>
+
+            <h2>Get to Know Newfront Section</h2>
+            <div class="form-group">
+                <label for="knowVideo">Get to Know Video:</label>
+                <input type="file" id="knowVideo" name="knowVideo" accept="video/mp4,video/webm">
+                {% if content.knowVideo %}
+                    <p class="current-file">Current: <a href="{{ content.knowVideo }}" target="_blank">{{ content.knowVideo.split('/')[-1] if content.knowVideo else '' }}</a></p>
+                    <input type="hidden" name="currentKnowVideo" value="{{ content.knowVideo }}">
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="knowh1">Get to Know Heading 1:</label>
+                <input type="text" id="knowh1" name="knowh1" value="{{ content.knowh1 }}">
+            </div>
+            <div class="form-group">
+                <label for="know2">Get to Know Heading 2:</label>
+                <input type="text" id="know2" name="know2" value="{{ content.know2 }}">
+            </div>
+
+            <h2>Explore Industries and Services Section</h2>
+            <div class="form-group">
+                <label for="exploreh1">Explore Heading 1:</label>
+                <input type="text" id="exploreh1" name="exploreh1" value="{{ content.exploreh1 }}">
+            </div>
+            <div class="form-group">
+                <label for="exploreh2">Explore Heading 2:</label>
+                <input type="text" id="exploreh2" name="exploreh2" value="{{ content.exploreh2 }}">
+            </div>
+            {% for i in range(1, 10) %}
+            <div class="form-group">
+                <label for="exploreImg{{ i }}">Explore Image {{ i }}:</label>
+                <input type="file" id="exploreImg{{ i }}" name="exploreImg{{ i }}" accept="image/*">
+                {% if content['exploreImg' ~ i] %}
+                    <p class="current-file">Current: <a href="{{ content['exploreImg' ~ i] }}" target="_blank">{{ content['exploreImg' ~ i].split('/')[-1] if content['exploreImg' ~ i] else '' }}</a>
+                    {% if content['exploreImg' ~ i].lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.webp')) %}
+                        <img src="{{ content['exploreImg' ~ i] }}" alt="Current Explore Image {{ i }}">
+                    {% endif %}
+                    </p>
+                    <input type="hidden" name="currentExploreImg{{ i }}" value="{{ content['exploreImg' ~ i] }}">
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <h2>Contact Section</h2>
+            <div class="form-group">
+                <label for="contactHead">Contact Heading:</label>
+                <input type="text" id="contactHead" name="contactHead" value="{{ content.contactHead }}">
+            </div>
+            <div class="form-group">
+                <label for="contactSubHead">Contact Sub-Heading:</label>
+                <textarea id="contactSubHead" name="contactSubHead">{{ content.contactSubHead }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="firstNameLabel">First Name Label:</label>
+                <input type="text" id="firstNameLabel" name="firstNameLabel" value="{{ content.firstNameLabel }}">
+            </div>
+            <div class="form-group">
+                <label for="lastNameLabel">Last Name Label:</label>
+                <input type="text" id="lastNameLabel" name="lastNameLabel" value="{{ content.lastNameLabel }}">
+            </div>
+            <div class="form-group">
+                <label for="jobTitleLabel">Job Title Label:</label>
+                <input type="text" id="jobTitleLabel" name="jobTitleLabel" value="{{ content.jobTitleLabel }}">
+            </div>
+            <div class="form-group">
+                <label for="companyNameLabel">Company Name Label:</label>
+                <input type="text" id="companyNameLabel" name="companyNameLabel" value="{{ content.companyNameLabel }}">
+            </div>
+            <div class="form-group">
+                <label for="phoneNumberLabel">Phone Number Label:</label>
+                <input type="text" id="phoneNumberLabel" name="phoneNumberLabel" value="{{ content.phoneNumberLabel }}">
+            </div>
+            <div class="form-group">
+                <label for="emailLabel">Email Label:</label>
+                <input type="text" id="emailLabel" name="emailLabel" value="{{ content.emailLabel }}">
+            </div>
+            <div class="form-group">
+                <label for="industryLabel">Industry Label:</label>
+                <input type="text" id="industryLabel" name="industryLabel" value="{{ content.industryLabel }}">
+            </div>
+            <div class="form-group">
+                <label for="employeeNumLabel">Number of Employee Label:</label>
+                <input type="text" id="employeeNumLabel" name="employeeNumLabel" value="{{ content.employeeNumLabel }}">
+            </div>
+            <div class="form-group">
+                <label for="helpQuestion">How can we help? Question:</label>
+                <input type="text" id="helpQuestion" name="helpQuestion" value="{{ content.helpQuestion }}">
+            </div>
+            <div class="form-group">
+                <label for="checkbox1Label">Checkbox 1 Label (Employee Benefits):</label>
+                <input type="text" id="checkbox1Label" name="checkbox1Label" value="{{ content.checkbox1Label }}">
+            </div>
+            <div class="form-group">
+                <label for="checkbox2Label">Checkbox 2 Label (Retirement Services):</label>
+                <input type="text" id="checkbox2Label" name="checkbox2Label" value="{{ content.checkbox2Label }}">
+            </div>
+            <div class="form-group">
+                <label for="checkbox3Label">Checkbox 3 Label (HR Services):</label>
+                <input type="text" id="checkbox3Label" name="checkbox3Label" value="{{ content.checkbox3Label }}">
+            </div>
+            <div class="form-group">
+                <label for="checkbox4Label">Checkbox 4 Label (Personal Lines):</label>
+                <input type="text" id="checkbox4Label" name="checkbox4Label" value="{{ content.checkbox4Label }}">
+            </div>
+            <div class="form-group">
+                <label for="checkbox5Label">Checkbox 5 Label (Wholesale Benefits):</label>
+                <input type="text" id="checkbox5Label" name="checkbox5Label" value="{{ content.checkbox5Label }}">
+            </div>
+            <div class="form-group">
+                <label for="checkbox6Label">Checkbox 6 Label (Asset Protection Program (APP)):</label>
+                <input type="text" id="checkbox6Label" name="checkbox6Label" value="{{ content.checkbox6Label }}">
+            </div>
+            <div class="form-group">
+                <label for="additionalDetailsLabel">Additional Details Label:</label>
+                <input type="text" id="additionalDetailsLabel" name="additionalDetailsLabel" value="{{ content.additionalDetailsLabel }}">
+            </div>
+            <div class="form-group">
+                <label for="submitButtonText">Submit Button Text:</label>
+                <input type="text" id="submitButtonText" name="submitButtonText" value="{{ content.submitButtonText }}">
+            </div>
+            <div class="form-group">
+                <label for="termsPolicyText">Terms and Policy Text (HTML allowed):</label>
+                <textarea id="termsPolicyText" name="termsPolicyText">{{ content.termsPolicyText }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="recaptchaText">reCAPTCHA Text (HTML allowed):</label>
+                <textarea id="recaptchaText" name="recaptchaText">{{ content.recaptchaText }}</textarea>
+            </div>
+
+            <h2>Footer Section</h2>
+            <div class="form-group">
+                <label for="footerStatement">Footer Statement (HTML allowed for line breaks):</label>
+                <textarea id="footerStatement" name="footerStatement">{{ content.footerStatement }}</textarea>
+            </div>
+
+            <h3>Social Link 1</h3>
+            <div class="form-group">
+                <label for="socialLink1Url">Social Link 1 URL:</label>
+                <input type="text" id="socialLink1Url" name="socialLink1Url" value="{{ content.socialLink1Url }}">
+            </div>
+            <div class="form-group">
+                <label for="socialImg1">Social Image 1:</label>
+                <input type="file" id="socialImg1" name="socialImg1" accept="image/*">
+                {% if content.socialImg1 %}
+                    <p class="current-file">Current: <a href="{{ content.socialImg1 }}" target="_blank">{{ content.socialImg1.split('/')[-1] if content.socialImg1 else '' }}</a>
+                    {% if content.socialImg1.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.webp')) %}
+                        <img src="{{ content.socialImg1 }}" alt="Current Social Image 1">
+                    {% endif %}
+                    </p>
+                    <input type="hidden" name="currentSocialImg1" value="{{ content.socialImg1 }}">
+                {% endif %}
+            </div>
+
+            <h3>Social Link 2</h3>
+            <div class="form-group">
+                <label for="socialLink2Url">Social Link 2 URL:</label>
+                <input type="text" id="socialLink2Url" name="socialLink2Url" value="{{ content.socialLink2Url }}">
+            </div>
+            <div class="form-group">
+                <label for="socialImg2">Social Image 2:</label>
+                <input type="file" id="socialImg2" name="socialImg2" accept="image/*">
+                {% if content.socialImg2 %}
+                    <p class="current-file">Current: <a href="{{ content.socialImg2 }}" target="_blank">{{ content.socialImg2.split('/')[-1] if content.socialImg2 else '' }}</a>
+                    {% if content.socialImg2.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.webp')) %}
+                        <img src="{{ content.socialImg2 }}" alt="Current Social Image 2">
+                    {% endif %}
+                    </p>
+                    <input type="hidden" name="currentSocialImg2" value="{{ content.socialImg2 }}">
+                {% endif %}
+            </div>
+
+            <h3>Social Link 3</h3>
+            <div class="form-group">
+                <label for="socialLink3Url">Social Link 3 URL:</label>
+                <input type="text" id="socialLink3Url" name="socialLink3Url" value="{{ content.socialLink3Url }}" >
+            </div>
+            <div class="form-group">
+                <label for="socialImg3">Social Image 3:</label>
+                <input type="file" id="socialImg3" name="socialImg3" accept="image/*">
+                {% if content.socialImg3 %}
+                    <p class="current-file">Current: <a href="{{ content.socialImg3 }}" target="_blank">{{ content.socialImg3.split('/')[-1] if content.socialImg3 else '' }}</a>
+                    {% if content.socialImg3.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.webp')) %}
+                        <img src="{{ content.socialImg3 }}" alt="Current Social Image 3">
+                    {% endif %}
+                    </p>
+                    <input type="hidden" name="currentSocialImg3" value="{{ content.socialImg3 }}">
+                {% endif %}
+            </div>
+
+            <h3>Social Link 4</h3>
+            <div class="form-group">
+                <label for="socialLink4Url">Social Link 4 URL:</label>
+                <input type="text" id="socialLink4Url" name="socialLink4Url" value="{{ content.socialLink4Url }}">
+            </div>
+            <div class="form-group">
+                <label for="socialImg4">Social Image 4:</label>
+                <input type="file" id="socialImg4" name="socialImg4" accept="image/*">
+                {% if content.socialImg4 %}
+                    <p class="current-file">Current: <a href="{{ content.socialImg4 }}" target="_blank">{{ content.socialImg4.split('/')[-1] if content.socialImg4 else '' }}</a>
+                    {% if content.socialImg4.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.webp')) %}
+                        <img src="{{ content.socialImg4 }}" alt="Current Social Image 4">
+                    {% endif %}
+                    </p>
+                    <input type="hidden" name="currentSocialImg4" value="{{ content.socialImg4 }}">
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="footerLink1Text">Footer Link 1 Text (Press):</label>
+                <input type="text" id="footerLink1Text" name="footerLink1Text" value="{{ content.footerLink1Text }}">
+            </div>
+            <div class="form-group">
+                <label for="footerLink1Url">Footer Link 1 URL:</label>
+                <input type="text" id="footerLink1Url" name="footerLink1Url" value="{{ content.footerLink1Url }}">
+            </div>
+            <div class="form-group">
+                <label for="footerLink2Text">Footer Link 2 Text (Careers):</label>
+                <input type="text" id="footerLink2Text" name="footerLink2Text" value="{{ content.footerLink2Text }}">
+            </div>
+            <div class="form-group">
+                <label for="footerLink2Url">Footer Link 2 URL:</label>
+                <input type="text" id="footerLink2Url" name="footerLink2Url" value="{{ content.footerLink2Url }}">
+            </div>
+            <div class="form-group">
+                <label for="footerLink3Text">Footer Link 3 Text (Events):</label>
+                <input type="text" id="footerLink3Text" name="footerLink3Text" value="{{ content.footerLink3Text }}">
+            </div>
+            <div class="form-group">
+                <label for="footerLink3Url">Footer Link 3 URL:</label>
+                <input type="text" id="footerLink3Url" name="footerLink3Url" value="{{ content.footerLink3Url }}">
+            </div>
+            <div class="form-group">
+                <label for="footerLink4Text">Footer Link 4 Text (Contact):</label>
+                <input type="text" id="footerLink4Text" name="footerLink4Text" value="{{ content.footerLink4Text }}">
+            </div>
+            <div class="form-group">
+                <label for="footerLink4Url">Footer Link 4 URL:</label>
+                <input type="text" id="footerLink4Url" name="footerLink4Url" value="{{ content.footerLink4Url }}">
+            </div>
+            <div class="form-group">
+                <label for="footerLink5Text">Footer Link 5 Text (Insights):</label>
+                <input type="text" id="footerLink5Text" name="footerLink5Text" value="{{ content.footerLink5Text }}">
+            </div>
+            <div class="form-group">
+                <label for="footerLink5Url">Footer Link 5 URL:</label>
+                <input type="text" id="footerLink5Url" name="footerLink5Url" value="{{ content.footerLink5Url }}">
+            </div>
+            <div class="form-group">
+                <label for="footerLink6Text">Footer Link 6 Text (Logins):</label>
+                <input type="text" id="footerLink6Text" name="footerLink6Text" value="{{ content.footerLink6Text }}">
+            </div>
+            <div class="form-group">
+                <label for="footerLink6Url">Footer Link 6 URL:</label>
+                <input type="text" id="footerLink6Url" name="footerLink6Url" value="{{ content.footerLink6Url }}">
+            </div>
+            <div class="form-group">
+                <label for="copyrightText">Copyright Text (HTML allowed for links):</label>
+                <textarea id="copyrightText" name="copyrightText">{{ content.copyrightText }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="privacyLinkText">Privacy Link Text:</label>
+                <input type="text" id="privacyLinkText" name="privacyLinkText" value="{{ content.privacyLinkText }}">
+            </div>
+            <div class="form-group">
+                <label for="privacyLinkUrl">Privacy Link URL:</label>
+                <input type="text" id="privacyLinkUrl" name="privacyLinkUrl" value="{{ content.privacyLinkUrl }}">
+            </div>
+            <div class="form-group">
+                <label for="footerDescription">Footer Description:</label>
+                <textarea id="footerDescription" name="footerDescription">{{ content.footerDescription }}</textarea>
+            </div>
+
+
+            <button type="submit" class="submit-btn">Update Content</button>
+        </form>
+    </div>
+</body>
+</html>
